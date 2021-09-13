@@ -1,0 +1,26 @@
+<main class="form-signin d-flex flex-column justify-content-center align-items-center">
+    <form [ngClass]="{'was-validated': wasValidate}" #login="ngForm" [formGroup]="formLogin"
+        class="d-flex flex-column justify-content-center align-items-center">
+        <h2 class="mb-3">Login</h2>
+
+        <div class="form-floating mb-3">
+            <input formControlName="email" #email type="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
+                class="form-control" id="floatingInput" required>
+            <label for="floatingInput">Email </label>
+
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="form-floating mb-3 ">
+            <input formControlName="senha" required #senha type="password" class="form-control" id="floatingPassword">
+            <label for="floatingPassword">Senha</label>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+
+        <button class="w-100 btn btn-lg btn-primary" (click)="logar(email.value,senha.value)">Enviar</button>
+    </form>
+</main>

@@ -1,0 +1,31 @@
+<form [ngClass]="{'was-validated': wasValidate}" #cadastro="ngForm" [formGroup]="formCadastro" class="">
+  <h2 class="mb-3 text-center">Cadastro de tipo de profissional</h2>
+
+  <div class="row">
+    <div class="form-floating mb-3  d-flex  align-items-center">
+
+      <mat-slide-toggle color="primary" [checked]="formCadastro.value.situacao" formControlName="situacao"
+        id="situacao">
+        Situação</mat-slide-toggle>
+    </div>
+
+
+  </div>
+  <div class="row">
+    <div class="form-floating mb-3 col input-group">
+
+      <span class="input-group-text" id="inputGroupPrepend">Descrição</span>
+      <input formControlName="descricao" #descricao type="text" class="form-control" id="descricao" required>
+
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <button class="w-100 btn btn-lg btn-primary" (click)="cadastrarProfissional()">Salvar</button>
+
+</form>

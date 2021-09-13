@@ -1,0 +1,31 @@
+.alerta {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  display: none;
+}
+.hideMessage {
+  animation: some 1s;
+}
+.showMessage {
+  animation: aparece 1s;
+  display: block !important;
+}
+@keyframes some {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes aparece {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

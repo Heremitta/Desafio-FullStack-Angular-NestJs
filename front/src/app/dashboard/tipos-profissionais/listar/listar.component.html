@@ -1,0 +1,33 @@
+<div class="w-100 " id="buscarNotas">
+
+  <div class="overflowX meuScroll">
+    <div class="mw-415">
+      <div class="envolvEfeito relative ">
+        <mat-grid-list class="col bg-secondary" style="font-size: 12px; font-weight: 700;" cols="6" rowHeight="25px">
+          <mat-grid-tile (click)="sortById()" class="cursor br-1  " colspan="1">Id</mat-grid-tile>
+          <mat-grid-tile class=" br-1  " colspan="1">Descrição
+          </mat-grid-tile>
+          <mat-grid-tile class=" br-1  " colspan="1">Situação
+          </mat-grid-tile>
+
+        </mat-grid-list>
+        <mat-grid-list [routerLink]="['../item',item.id]" class="line hoverLine cursor" hover-class="bg-primary"
+          [ngClass]="{'rowimpar': i%2 == 0}" style="font-size: 11px; font-weight: 500;" cols="6" rowHeight="45px"
+          *ngFor="let item of profissionais; let i = index">
+          <mat-grid-tile class="br-1 minw-fit" colspan="1">{{item.id}}</mat-grid-tile>
+          <mat-grid-tile class="br-1 minw-fit" colspan="1">{{item.descricao}}</mat-grid-tile>
+          <mat-grid-tile class="br-1 minw-fit" colspan="1">{{item.situacao}}</mat-grid-tile>
+        </mat-grid-list>
+        <div *ngIf="loading | async" class="efeitoOcupado h-100 w-100 d-flex justify-content-center align-items-center">
+          <mat-spinner diameter=38 strokeWidth=6></mat-spinner>
+        </div>
+        <mat-paginator #paginator [length]="totalProfissionaisPorPaginacao" [pageSize]="qntdPorPagina"
+          [pageSizeOptions]="[5, 10, 25, totalProfissionaisPorPaginacao]"
+          (page)="pageEvent = $event;buscaPorPaginacao($event.pageIndex)">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+
+
+</div>

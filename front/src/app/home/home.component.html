@@ -1,0 +1,39 @@
+<app-alert-message></app-alert-message>
+<div class="container">
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a routerLink="/" class="d-flex align-items-center col-md-3 me-2  mb-md-0 text-dark text-decoration-none">
+      <h2 class="text-md-start">Desafio - FullStack</h2>
+    </a>
+    <div class="col-md-3 text-end">
+      <button type="button" routerLink="login" class="btn btn-outline-primary me-2">Login</button>
+      <button type="button" routerLink="cadastro" class="btn btn-primary">cadastre-se</button>
+    </div>
+  </header>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+      </a>
+      <span class="text-muted btn" routerLink="/">© 2021 Desafio - FullStack</span>
+    </div>
+    <div>Criado por Saulo Ramos</div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="https://www.linkedin.com/in/sauloaramos/" target="_blank"><i
+            tooltip="acesse meu LinkedIn" class="bi bi-linkedin"></i></a>
+      </li>
+      <li class="ms-3"><a class="text-muted" href="https://github.com/Heremitta" target="_blank"><i
+            tooltip="acesse meu GitHub" class="bi bi-github"></i></a>
+      </li>
+
+    </ul>
+  </footer>
+</div>

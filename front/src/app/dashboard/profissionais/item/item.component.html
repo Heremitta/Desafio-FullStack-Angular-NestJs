@@ -1,0 +1,99 @@
+<div class="container p-4 h-100 d-flex justify-content-center align-items-center">
+  <mat-card class="h-100 w-100 ">
+    <div class="row">
+      <div class="col-md-8">
+        <form [ngClass]="{'was-validated': wasValidate}" #cadastro="ngForm" [formGroup]="formCadastro">
+          <h2 class="mb-3 text-center">Profissional</h2>
+
+          <div class="row">
+            <div class="form-floating mb-3  d-flex  align-items-center">
+
+              <mat-slide-toggle color="primary" [checked]="formCadastro.value.situacao" formControlName="situacao"
+                id="situacao">
+                Situação</mat-slide-toggle>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="form-floating mb-3 col input-group">
+
+              <span class="input-group-text" id="inputGroupPrepend">Nome</span>
+              <input formControlName="nome" #nome type="text" class="form-control" id="nome" required>
+
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="form-floating mb-3 col input-group">
+
+              <span class="input-group-text" id="inputGroupPrepend">Telefone</span>
+              <input formControlName="telefone" #telefone type="text" class="form-control" id="telefone">
+
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="form-floating mb-3 col input-group">
+
+              <span class="input-group-text" id="inputGroupPrepend">E-mail</span>
+              <input formControlName="email" #email type="text" class="form-control" id="email">
+
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="form-floating mb-3 col input-group">
+
+              <mat-form-field appearance="outline" id="tipoDeProfissional" class="w-100">
+                <mat-label class="fs-6">Tipo de Profissional</mat-label>
+                <mat-select formControlName="tipoDeProfissional">
+                  <mat-option [value]="iten?.id" *ngFor="let iten of tiposProfissionais">
+                    {{iten.descricao}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+          <button *ngIf="alterarProfissional" class="btn w-100 btn-success"
+            (click)="openModal(template)">Salvar</button>
+
+        </form>
+      </div>
+      <div class="col-md-4 row flex-column d-flex mt-4 align-items-center">
+        <button [ngClass]="{'bg-warning': alterarProfissional}" class="btn mb-2 btn bg-gradient text-light bg-primary"
+          (click)="permiteAlterar()">Alterar</button>
+        <button class="btn mb-2 btn-secondary" (click)="reset()">Cancelar</button>
+        <button class="btn mb-2 btn-danger"
+          (click)="deletarProfissional = !deletarProfissional ;openModal(template)">Deletar</button>
+      </div>
+    </div>
+  </mat-card>
+
+  <ng-template #template>
+    <div class="modal-body text-center">
+      <p *ngIf="deletarProfissional">Deseja realmente <strong class="text-danger">DELETAR</strong> o profissional
+        {{item.nome}}?</p>
+      <p *ngIf="!deletarProfissional">Deseja realmente <strong class="text-warning">ALTERAR</strong> o profissional
+        {{item.nome}}?</p>
+      <button type="button" class="btn btn-default" (click)="confirm()">Yes</button>
+      <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+    </div>
+  </ng-template>
+</div>
